@@ -39,7 +39,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         .setColor(0x6a0dad)
         .setTitle("🌿 Welcome to Smoke-Circle")
         .setDescription(`${member}, you made it.\n\nLight up. Lurk. Or spark conversation.`)
-        .setImage("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif")
+        .setImage("https://giphy.com/gifs/ice-cube-friday-movie-craig-jones-3o85xAqcGm4rV1Ig5W")
         .setFooter({ text: "18+ vibes only" });
 
             smokeChannel.send({ embeds: [welcomeEmbed] });
