@@ -1,5 +1,4 @@
-const { Client, GatewayIntentBits, Partials } = require('discord.js');
-
+const { Client, GatewayIntentBits, Partials, EmbedBuilder } = require('discord.js');
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -36,15 +35,14 @@ client.on('messageReactionAdd', async (reaction, user) => {
         const smokeChannel = reaction.message.guild.channels.cache.get(SMOKE_CHANNEL_ID);
 
         if (smokeChannel) {
-            smokeChannel.send({
-    content: `💨✨ Welcome to the circle, ${member}!\n\nGrab a seat, light up, and make yourself at home.`,
-    embeds: [
-        {
-            image: {
-                url: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif"
-            }
-        }
-    ]
-});
+    const welcomeEmbed = new EmbedBuilder()
+        .setColor(0x6a0dad)
+        .setTitle("🌿 Welcome to Smoke-Circle")
+        .setDescription(`${member}, you made it.\n\nLight up. Lurk. Or spark conversation.`)
+        .setImage("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif")
+        .setFooter({ text: "18+ vibes only" });
+
+    smokeChannel.send({ embeds: [welcomeEmbed] });
+}
 
 client.login(TOKEN);
