@@ -36,9 +36,15 @@ client.on('messageReactionAdd', async (reaction, user) => {
         const smokeChannel = reaction.message.guild.channels.cache.get(SMOKE_CHANNEL_ID);
 
         if (smokeChannel) {
-            smokeChannel.send(`🌿 ${member} joined the circle.\n\nNo pressure to talk. Just vibe.`);
+            smokeChannel.send({
+    content: `🌿 ${member}, welcome to Longlegoddess’s smoke-circle.\n\n18+ vibes only. Relax. Lurk. Or spark it up.`,
+    embeds: [
+        {
+            image: {
+                url: "PUT_YOUR_GIF_LINK_HERE"
+            }
         }
-    }
+    ]
 });
 
 client.login(TOKEN);
