@@ -38,7 +38,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
             smokeChannel.send({
             content: `Welcome to the smoke-Circle ${member}`,
-            files: ["https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif"]
+            files: ["https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHZpY21icnB2ZzN2ZmJ2dnJzZWl5ZTF6NzdtOWhiNTZrMDByMXd3YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xAqcGm4rV1Ig5W/giphy.gif"]
         });
         }
     }
