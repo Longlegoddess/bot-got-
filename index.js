@@ -37,11 +37,11 @@ client.on('messageReactionAdd', async (reaction, user) => {
 
         if (smokeChannel) {
             smokeChannel.send({
-    content: `🌿 ${member}, welcome to Longlegoddess’s smoke-circle.\n\n18+ vibes only. Relax. Lurk. Or spark it up.`,
+    content: `💨✨ Welcome to the circle, ${member}!\n\nGrab a seat, light up, and make yourself at home.`,
     embeds: [
         {
             image: {
-                url: "PUT_YOUR_GIF_LINK_HERE"
+                url: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif"
             }
         }
     ]
