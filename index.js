@@ -35,14 +35,11 @@ client.on('messageReactionAdd', async (reaction, user) => {
         const smokeChannel = reaction.message.guild.channels.cache.get(SMOKE_CHANNEL_ID);
 
         if (smokeChannel) {
-    const welcomeEmbed = new EmbedBuilder()
-        .setColor(0x6a0dad)
-        .setTitle("🌿 Welcome to Smoke-Circle")
-        .setDescription(`${member}, you made it.\n\nLight up. Lurk. Or spark conversation.`)
-        .setImage("https://giphy.com/gifs/ice-cube-friday-movie-craig-jones-3o85xAqcGm4rV1Ig5W")
-        .setFooter({ text: "18+ vibes only" });
 
-            smokeChannel.send({ embeds: [welcomeEmbed] });
+            smokeChannel.send({
+            content: `Welcome to the smoke-Circle ${member}`,
+            files: ["https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif"]
+        });
         }
     }
 });
