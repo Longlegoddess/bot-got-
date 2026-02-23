@@ -13,6 +13,7 @@ const client = new Client({
 const TOKEN = process.env.TOKEN;
 const ROLE_ID = "1474567355941126196";
 const CHANNEL_ID = "1439683908202397877";
+const SMOKE_CHANNEL_ID = "1474682189701451776"
 const MESSAGE_ID = "1439684602196398242";
 
 client.once('ready', () => {
@@ -20,13 +21,24 @@ client.once('ready', () => {
 });
 
 client.on('messageReactionAdd', async (reaction, user) => {
-  if (user.bot) return;
+    if (user.bot) return;
 
-  if (reaction.message.id === MESSAGE_ID && reaction.message.channel.id === CHANNEL_ID) {
-    const member = await reaction.message.guild.members.fetch(user.id);
-    await member.roles.add(ROLE_ID);
-    console.log(`Added role to ${user.tag}`);
-  }
+    if (
+        reaction.message.id === MESSAGE_ID &&
+        reaction.message.channel.id === CHANNEL_ID &&
+        reaction.emoji.name === "✅"
+    ) {
+        const member = await reaction.message.guild.members.fetch(user.id);
+
+        await member.roles.add(ROLE_ID);
+        console.log(`Added role to ${user.tag}`);
+
+        const smokeChannel = reaction.message.guild.channels.cache.get(SMOKE_CHANNEL_ID);
+
+        if (smokeChannel) {
+            smokeChannel.send(`🌿 ${member} joined the circle.\n\nNo pressure to talk. Just vibe.`);
+        }
+    }
 });
 
 client.login(TOKEN);
