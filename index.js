@@ -42,7 +42,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
         .setImage("https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif")
         .setFooter({ text: "18+ vibes only" });
 
-    smokeChannel.send({ embeds: [welcomeEmbed] });
-}
+            smokeChannel.send({ embeds: [welcomeEmbed] });
+        }
+    }
+});
 
 client.login(TOKEN);
